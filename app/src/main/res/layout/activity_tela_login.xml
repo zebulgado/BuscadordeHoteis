@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.buscadordehoteis.TelaLogin">
+
+    <TextView
+        android:id="@+id/tv_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Informe seu login:"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/ed_login"
+
+         />
+
+    <EditText
+        android:id="@+id/ed_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:autofillHints="Nome de Usuário"
+        android:hint="Nome de Usuário"
+        app:layout_constraintTop_toBottomOf="@id/tv_login"
+        app:layout_constraintBottom_toTopOf="@+id/tv_senha"
+        />
+
+    <TextView
+        android:id="@+id/tv_senha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Informe sua senha:"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/ed_login"
+        app:layout_constraintBottom_toTopOf="@id/ed_senha"/>
+
+    <EditText
+        android:id="@+id/ed_senha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:autofillHints="Senha de Usuário"
+        android:hint="Senha de Usuário"
+        app:layout_constraintTop_toBottomOf="@id/tv_senha"
+        app:layout_constraintBottom_toTopOf="@id/bt_entrar"
+        />
+
+    <Button
+        android:id="@+id/bt_entrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ENTRAR"
+        app:layout_constraintTop_toBottomOf="@+id/ed_senha"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

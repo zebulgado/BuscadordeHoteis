@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.buscadordehoteis.TelaPrincipal">
+
+    <TextView
+        android:id="@+id/tv_bem_vindo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tv_escolha_pesquisa"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Seja bem vindo!"
+        />
+    <TextView
+        android:id="@+id/tv_escolha_pesquisa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_bem_vindo"
+        app:layout_constraintBottom_toTopOf="@id/op_pesquisa"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Escolha sua forma de pesquisa:"
+        />
+
+    <RadioGroup
+        android:id="@+id/op_pesquisa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_escolha_pesquisa"
+        app:layout_constraintBottom_toTopOf="@id/bt_avancar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" >
+
+        <RadioButton
+            android:id="@+id/rb_menor_preco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Menor Preço" />
+
+        <RadioButton
+            android:id="@+id/rb_melhor_avaliacao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Melhor Avaliação" />
+
+        <RadioButton
+            android:id="@+id/rb_todos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sem filtro, listar todos" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/bt_voltar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/op_pesquisa"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/bt_avancar"
+        android:text="voltar"/>
+
+    <Button
+        android:id="@+id/bt_avancar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/op_pesquisa"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/bt_voltar"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Avançar"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
