@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BuscadorDeHotéis">
-        <activity android:name=".SelecaoHotel"></activity>
+        <activity android:name=".TelaSplashScreen"></activity>
+        <activity android:name=".SelecaoHotel" />
         <activity android:name=".TelaPrincipal" />
         <activity android:name=".TelaLogin">
             <intent-filter>
