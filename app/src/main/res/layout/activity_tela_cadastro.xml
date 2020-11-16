@@ -75,7 +75,7 @@
             android:id="@+id/ed_nascimento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="date"
+            android:inputType="number"
             android:autofillHints="Data de Nascimento"
             android:hint="Data de Nascimento - APENAS NÚMEROS"
             />
