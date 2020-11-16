@@ -1,4 +1,4 @@
-package com.example.buscadordehoteis;
+package com.example.buscadordehoteis.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,13 +6,11 @@ import android.os.Bundle;
 
 import com.example.buscadordehoteis.R;
 
-public class TelaPrincipal extends AppCompatActivity {
+public class TelaCadastro extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tela_principal);
-
-
+        setContentView(R.layout.activity_tela_cadastro);
     }
 }

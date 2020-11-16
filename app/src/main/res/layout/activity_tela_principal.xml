@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.buscadordehoteis.TelaPrincipal">
+    tools:context="com.example.buscadordehoteis.view.TelaPrincipal">
 
     <TextView
         android:id="@+id/tv_bem_vindo"

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.TelaCadastro">
+
+    <LinearLayout
+        android:id="@+id/linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_nome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nome completo:"
+            android:gravity="center"
+            />
+
+        <EditText
+            android:id="@+id/ed_nome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:autofillHints="Nome"
+            android:hint="Nome"
+            />
+
+        <TextView
+            android:id="@+id/tv_telefone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Telefone:"
+            android:gravity="center"
+            />
+
+        <EditText
+            android:id="@+id/ed_telefone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:autofillHints="Telefone"
+            android:hint="Telefone"
+            />
+
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Informe seu email:"
+            android:gravity="center"
+            />
+
+        <EditText
+            android:id="@+id/ed_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:autofillHints="Email"
+            android:hint="Email"
+            />
+
+        <TextView
+            android:id="@+id/tv_nascimento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Informe sua data de nascimento:"
+            android:gravity="center"
+            />
+
+        <EditText
+            android:id="@+id/ed_nascimento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:autofillHints="Data de Nascimento"
+            android:hint="Data de Nascimento - APENAS NÚMEROS"
+            />
+
+
+        <TextView
+            android:id="@+id/tv_cpf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Informe seu CPF:"
+            android:gravity="center"
+            />
+
+        <EditText
+            android:id="@+id/ed_cpf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapCharacters"
+            android:autofillHints="Nome de Usuário"
+            android:hint="CPF - APENAS NÚMEROS"
+            />
+
+        <TextView
+            android:id="@+id/tv_senha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Informe sua senha:"
+            android:gravity="center"/>
+
+        <EditText
+            android:id="@+id/ed_senha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:autofillHints="Senha de Usuário"
+            android:hint="Senha de Usuário"
+            />
+
+        <TextView
+            android:id="@+id/tv_fidelidade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Opção de fidelidade:"
+            android:gravity="center"
+            />
+
+        <RadioGroup
+            android:id="@+id/op_fidelidade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" >
+
+            <RadioButton
+                android:id="@+id/rb_sim"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SIM" />
+
+            <RadioButton
+                android:id="@+id/rb_nao"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NÃO" />
+
+        </RadioGroup>
+
+
+        <Button
+            android:id="@+id/bt_cadastrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CADASTRAR"
+            android:layout_gravity="center"
+            />
+    </LinearLayout>
+
+</ScrollView>

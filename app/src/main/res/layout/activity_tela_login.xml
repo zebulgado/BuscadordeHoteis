@@ -4,27 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.buscadordehoteis.TelaLogin">
+    tools:context="com.example.buscadordehoteis.view.TelaLogin">
 
     <TextView
-        android:id="@+id/tv_login"
+        android:id="@+id/tv_cpf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Informe seu login:"
+        android:text="Informe seu CPF:"
         android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/ed_login"
+        app:layout_constraintBottom_toBottomOf="@id/ed_cpf"
 
          />
 
     <EditText
-        android:id="@+id/ed_login"
+        android:id="@+id/ed_cpf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
-        android:autofillHints="Nome de Usuário"
+        android:autofillHints="CPF - APENAS NÚMEROS"
         android:hint="Nome de Usuário"
-        app:layout_constraintTop_toBottomOf="@id/tv_login"
+        app:layout_constraintTop_toBottomOf="@id/tv_cpf"
         app:layout_constraintBottom_toTopOf="@+id/tv_senha"
         />
 
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:text="Informe sua senha:"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/ed_login"
+        app:layout_constraintTop_toBottomOf="@id/ed_cpf"
         app:layout_constraintBottom_toTopOf="@id/ed_senha"/>
 
     <EditText
@@ -53,9 +53,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ENTRAR"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/bt_pular"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_senha" />
+
+    <Button
+        android:id="@+id/bt_pular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="depois"
         app:layout_constraintTop_toBottomOf="@+id/ed_senha"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/bt_entrar"
         app:layout_constraintEnd_toEndOf="parent"
         />
 
