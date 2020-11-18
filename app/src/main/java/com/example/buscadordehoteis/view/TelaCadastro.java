@@ -2,6 +2,7 @@ package com.example.buscadordehoteis.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -32,7 +33,7 @@ public class TelaCadastro extends AppCompatActivity {
     EditText edNome, edEmail, edNascimento, edSenha, edTelefone, edCpf;
     RadioGroup rgFidelidade;
     RadioButton rbSim, rbNao;
-    Button btCadastrar;
+    Button btCadastrar, btDevAlterarCadastro;
     Date nascimento = new Date();
 
     @Override
@@ -50,6 +51,7 @@ public class TelaCadastro extends AppCompatActivity {
         btCadastrar = findViewById(R.id.bt_cadastrar);
         rbNao = findViewById(R.id.rb_nao);
         rbSim = findViewById(R.id.rb_sim);
+        btDevAlterarCadastro = findViewById(R.id.dev_bt_chamar_alterar_cadastro);
 
         btCadastrar.setOnClickListener(v -> {
 
@@ -78,6 +80,11 @@ public class TelaCadastro extends AppCompatActivity {
                 }
             });
             edCpf.addTextChangedListener(Mask.insert(Mask.CPF_MASK, edCpf));
+        });
+
+        btDevAlterarCadastro.setOnClickListener(v -> {
+            Intent telaCadastro = new Intent(TelaCadastro.this, TelaAlterarCadastro.class);
+            startActivity(telaCadastro);
         });
     }
 }
