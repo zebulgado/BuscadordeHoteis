@@ -52,21 +52,30 @@
         android:id="@+id/bt_entrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ENTRAR"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/bt_pular"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_senha" />
+        app:layout_constraintEnd_toStartOf="@id/bt_depois"
+        app:layout_constraintBottom_toTopOf="@id/bt_novo_usuario"
+        app:layout_constraintTop_toBottomOf="@id/ed_senha"
+        android:text="ENTRAR"/>
 
     <Button
-        android:id="@+id/bt_pular"
+        android:id="@+id/bt_depois"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="depois"
-        app:layout_constraintTop_toBottomOf="@+id/ed_senha"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/bt_entrar"
+        app:layout_constraintBottom_toTopOf="@+id/bt_novo_usuario"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintStart_toEndOf="@id/bt_entrar"
+        app:layout_constraintTop_toBottomOf="@+id/ed_senha" />
+
+    <Button
+        android:id="@+id/bt_novo_usuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="novo usuário"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_entrar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

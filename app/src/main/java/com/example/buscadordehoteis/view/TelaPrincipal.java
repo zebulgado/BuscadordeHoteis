@@ -10,7 +10,7 @@ import android.widget.Button;
 import com.example.buscadordehoteis.R;
 
 public class TelaPrincipal extends AppCompatActivity {
-    Button btAvancar;
+    Button btAvancar, btVoltar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,12 +18,10 @@ public class TelaPrincipal extends AppCompatActivity {
         setContentView(R.layout.activity_tela_principal);
 
         btAvancar = findViewById(R.id.bt_avancar);
-        btAvancar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent selecaoHotel = new Intent(TelaPrincipal.this, SelecaoHotel.class);
-                startActivity(selecaoHotel);
-            }
+        btVoltar = findViewById(R.id.bt_voltar);
+
+        btVoltar.setOnClickListener(v -> {
+            finish();
         });
 
     }

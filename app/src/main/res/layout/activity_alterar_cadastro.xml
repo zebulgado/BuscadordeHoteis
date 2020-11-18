@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.TelaAlterarCadastro">
+
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/sv_hotel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                        <EditText
+                            android:id="@+id/ed_cpf"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:text=""
+                            />
+
+                        <Button
+                            android:id="@+id/bt_consultar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Consultar"
+                            />
+
+                        <TextView
+                        android:id="@+id/tv_nome"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Nome:"
+                        android:gravity="center"
+                        />
+
+                        <EditText
+                            android:id="@+id/ed_retono_nome"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:text=""
+                            android:enabled="false"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_telefone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Telefone:"
+                            android:gravity="center"
+                            />
+
+                        <EditText
+                            android:id="@+id/ed_retono_telefone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:text=""
+                            android:enabled="false"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Email:"
+                            android:gravity="center"
+                            />
+
+                        <EditText
+                            android:id="@+id/ed_retono_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:text=""
+                            android:enabled="false"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_data_nascimento"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Data de Nascimento:"
+                            android:gravity="center"
+                            />
+
+                        <EditText
+                            android:id="@+id/ed_retono_nascimento"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:text=""
+                            android:enabled="false"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_cpf"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="CPF:"
+                            android:gravity="center"
+                            />
+
+                        <EditText
+                            android:id="@+id/ed_retono_cpf"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:text=""
+                            android:enabled="false"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_senha"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Senha:"
+                            android:gravity="center"
+                            />
+
+                        <EditText
+                            android:id="@+id/ed_retono_senha"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:text=""
+                            android:enabled="false"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_fidelidade"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Opção de fidelidade:"
+                            android:gravity="center"
+                            />
+
+                        <RadioGroup
+                            android:id="@+id/op_fidelidade"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" >
+
+                                <RadioButton
+                                    android:id="@+id/rb_sim"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:enabled="false"
+                                    android:text="SIM" />
+
+                                <RadioButton
+                                    android:id="@+id/rb_nao"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:enabled="false"
+                                    android:text="NÃO" />
+
+                        </RadioGroup>
+
+                        <CheckBox
+                            android:id="@+id/cb_excluir"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:enabled="false"
+                            android:text="Ecluir conta"/>
+
+                        <Button
+                            android:id="@+id/bt_salvar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:visibility="gone"
+                            android:text="Salvar"
+                            />
+
+                        <Button
+                            android:id="@+id/bt_atualizar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Atualizar"
+                            />
+
+                        <Button
+                            android:id="@+id/bt_voltar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="voltar"
+                            />
+
+                        </LinearLayout>
+        </ScrollView>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,10 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.buscadordehoteis.R;
 
 public class TelaLogin extends AppCompatActivity {
-    Button btEntrar;
-    Button btPular;
-    EditText edCpf;
-    EditText edSenha;
+    Button btEntrar, btDepois, btNovoUsuario;
+    EditText edCpf, edSenha;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,11 +22,12 @@ public class TelaLogin extends AppCompatActivity {
         setContentView(R.layout.activity_tela_login);
 
         btEntrar = findViewById(R.id.bt_entrar);
-        btPular = findViewById(R.id.bt_pular);
+        btDepois = findViewById(R.id.bt_depois);
+        btNovoUsuario = findViewById(R.id.bt_novo_usuario);
         edCpf = findViewById(R.id.ed_cpf);
         edSenha = findViewById(R.id.ed_senha);
 
-        btPular.setOnClickListener(new View.OnClickListener() {
+        btDepois.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent telaPrincipal = new Intent(TelaLogin.this, TelaPrincipal.class);
@@ -39,19 +38,15 @@ public class TelaLogin extends AppCompatActivity {
         btEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent telaPrincipal = new Intent(TelaLogin.this, TelaCadastro.class);
-                startActivity(telaPrincipal);
                // verificarCampoCpf();
                // verificarCampoSenha();
 
             }
         });
 
-        edCpf.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                edCpf.setBackgroundColor(Color.WHITE);
-            }
+        btNovoUsuario.setOnClickListener(v -> {
+            Intent telaCadastro = new Intent(TelaLogin.this, TelaCadastro.class);
+            startActivity(telaCadastro);
         });
     }
 

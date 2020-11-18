@@ -1,4 +1,4 @@
-package com.example.buscadordehoteis;
+package com.example.buscadordehoteis.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.buscadordehoteis.view.TelaPrincipal;
+import com.example.buscadordehoteis.R;
 
 public class TelaSplashScreen extends AppCompatActivity {
 
@@ -19,12 +19,9 @@ public class TelaSplashScreen extends AppCompatActivity {
         setContentView(R.layout.activity_tela_splash_screen);
 
         btButton = findViewById(R.id.bt_button);
-        btButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent telaPrincipal = new Intent(TelaSplashScreen.this, TelaPrincipal.class);
-                startActivity(telaPrincipal);
-            }
+        btButton.setOnClickListener(v -> {
+            Intent telaPrincipal = new Intent(TelaSplashScreen.this, TelaPrincipal.class);
+            startActivity(telaPrincipal);
         });
 
 

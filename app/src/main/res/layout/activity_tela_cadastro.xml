@@ -93,7 +93,7 @@
             android:id="@+id/ed_cpf"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textCapCharacters"
+            android:inputType="number"
             android:autofillHints="Nome de Usuário"
             android:hint="CPF - APENAS NÚMEROS"
             />
