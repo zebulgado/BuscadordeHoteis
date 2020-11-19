@@ -15,14 +15,9 @@ import com.example.buscadordehoteis.R;
 import com.example.buscadordehoteis.model.Guest;
 import com.example.buscadordehoteis.repository.RetrofitConfig;
 import com.example.buscadordehoteis.service.Mask;
-import com.example.buscadordehoteis.service.MaskEditUtil;
 import com.example.buscadordehoteis.service.metodosUtil;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -41,16 +36,16 @@ public class TelaCadastro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_cadastro);
 
-        edEmail = findViewById(R.id.ed_email);
-        rgFidelidade = findViewById(R.id.op_fidelidade);
-        edNome = findViewById(R.id.ed_nome);
-        edNascimento = findViewById(R.id.ed_nascimento);
-        edSenha = findViewById(R.id.ed_senha);
-        edTelefone = findViewById(R.id.ed_telefone);
-        edCpf = findViewById(R.id.ed_cpf);
-        btCadastrar = findViewById(R.id.bt_cadastrar);
-        rbNao = findViewById(R.id.rb_nao);
-        rbSim = findViewById(R.id.rb_sim);
+        edEmail = findViewById(R.id.ed_email_cadastro);
+        rgFidelidade = findViewById(R.id.op_fidelidade_cadastro);
+        edNome = findViewById(R.id.ed_nome_cadastro);
+        edNascimento = findViewById(R.id.ed_nascimento_cadastro);
+        edSenha = findViewById(R.id.ed_senha_cadastro);
+        edTelefone = findViewById(R.id.ed_telefone_cadastro);
+        edCpf = findViewById(R.id.ed_cpf_cadastro);
+        btCadastrar = findViewById(R.id.bt_cadastrar_cadastro);
+        rbNao = findViewById(R.id.rb_nao_cadastro);
+        rbSim = findViewById(R.id.rb_sim_cadastro);
         btDevAlterarCadastro = findViewById(R.id.dev_bt_chamar_alterar_cadastro);
 
         btCadastrar.setOnClickListener(v -> {

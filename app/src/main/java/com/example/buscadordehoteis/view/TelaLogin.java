@@ -24,8 +24,8 @@ public class TelaLogin extends AppCompatActivity {
         btEntrar = findViewById(R.id.bt_entrar);
         btDepois = findViewById(R.id.bt_depois);
         btNovoUsuario = findViewById(R.id.bt_novo_usuario);
-        edCpf = findViewById(R.id.ed_cpf);
-        edSenha = findViewById(R.id.ed_senha);
+        edCpf = findViewById(R.id.ed_cpf_cadastro);
+        edSenha = findViewById(R.id.ed_senha_cadastro);
 
         btDepois.setOnClickListener(new View.OnClickListener() {
             @Override

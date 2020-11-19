@@ -15,10 +15,10 @@ public class metodosUtil {
         boolean resposta = false;
         int checkedId = radioGroup.getCheckedRadioButtonId();
         switch (checkedId) {
-            case R.id.rb_sim:
+            case R.id.rb_sim_cadastro:
                 resposta = true;
                 break;
-            case R.id.rb_nao:
+            case R.id.rb_nao_cadastro:
                 resposta = false;
                 break;
         }

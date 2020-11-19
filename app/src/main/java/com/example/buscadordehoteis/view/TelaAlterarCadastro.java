@@ -38,21 +38,21 @@ public class TelaAlterarCadastro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alterar_cadastro);
 
-        edCpf = findViewById(R.id.ed_cpf);
-        edRetornoEmail = findViewById(R.id.ed_retono_email);
-        rgRetornoFidelidade = findViewById(R.id.op_fidelidade);
-        edRetornoNome = findViewById(R.id.ed_retono_nome);
-        edRetornoNascimento = findViewById(R.id.ed_retono_nascimento);
-        edRetornoSenha = findViewById(R.id.ed_retono_senha);
-        edRetornoTelefone = findViewById(R.id.ed_retono_telefone);
-        edRetornoCpf = findViewById(R.id.ed_retono_cpf);
-        btConsultar = findViewById(R.id.bt_consultar);
-        btAtualizar = findViewById(R.id.bt_atualizar);
-        btSalvar = findViewById(R.id.bt_salvar);
-        rbNao = findViewById(R.id.rb_nao);
-        rbSim = findViewById(R.id.rb_sim);
-        cbExcluir = findViewById(R.id.cb_excluir);
-        btVoltar = findViewById(R.id.bt_voltar);
+        edCpf = findViewById(R.id.ed_cpf_consulta_alterar_cadastro);
+        edRetornoEmail = findViewById(R.id.ed_email_alterar_cadastro);
+        rgRetornoFidelidade = findViewById(R.id.op_fidelidade_alterar_cadastro);
+        edRetornoNome = findViewById(R.id.ed_nome_alterar_cadastro);
+        edRetornoNascimento = findViewById(R.id.ed_nascimento_alterar_cadastro);
+        edRetornoSenha = findViewById(R.id.ed_senha_alterar_cadastro);
+        edRetornoTelefone = findViewById(R.id.ed_telefone_alterar_cadastro);
+        edRetornoCpf = findViewById(R.id.ed_cpf_alterar_cadastro);
+        btConsultar = findViewById(R.id.bt_consultar_alterar_cadastro);
+        btAtualizar = findViewById(R.id.bt_atualizar_alterar_cadastro);
+        btSalvar = findViewById(R.id.bt_salvar_alterar_cadastro);
+        rbNao = findViewById(R.id.rb_nao_alterar_cadastro);
+        rbSim = findViewById(R.id.rb_sim_alterar_cadastro);
+        cbExcluir = findViewById(R.id.cb_excluir_alterar_cadastro);
+        btVoltar = findViewById(R.id.bt_voltar_alterar_cadastro);
 
         btConsultar.setOnClickListener(v -> {
             RetrofitConfig retrofitConfig = new RetrofitConfig();
@@ -69,10 +69,10 @@ public class TelaAlterarCadastro extends AppCompatActivity {
                     edRetornoTelefone.setText(guest.getPhone());
                     retornoSenha = guest.getPassword();
                     if (guest.getIsLoyalty()){
-                        rgRetornoFidelidade.check(R.id.rb_sim);
+                        rgRetornoFidelidade.check(R.id.rb_sim_alterar_cadastro);
                         respostaFidelidade = true;
                     } else {
-                        rgRetornoFidelidade.check(R.id.rb_nao);
+                        rgRetornoFidelidade.check(R.id.rb_nao_alterar_cadastro);
                         respostaFidelidade = false;
                     }
                 }

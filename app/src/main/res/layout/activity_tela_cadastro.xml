@@ -7,13 +7,13 @@
     tools:context=".view.TelaCadastro">
 
     <LinearLayout
-        android:id="@+id/linear_layout"
+        android:id="@+id/linear_layout_cadastro"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tv_nome"
+            android:id="@+id/tv_nome_cadastro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Nome completo:"
@@ -21,7 +21,7 @@
             />
 
         <EditText
-            android:id="@+id/ed_nome"
+            android:id="@+id/ed_nome_cadastro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
@@ -30,7 +30,7 @@
             />
 
         <TextView
-            android:id="@+id/tv_telefone"
+            android:id="@+id/tv_telefone_cadastro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Telefone:"
@@ -38,7 +38,7 @@
             />
 
         <EditText
-            android:id="@+id/ed_telefone"
+            android:id="@+id/ed_telefone_cadastro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
@@ -47,7 +47,7 @@
             />
 
         <TextView
-            android:id="@+id/tv_email"
+            android:id="@+id/tv_email_cadastro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Informe seu email:"
@@ -55,7 +55,7 @@
             />
 
         <EditText
-            android:id="@+id/ed_email"
+            android:id="@+id/ed_email_cadastro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
@@ -64,7 +64,7 @@
             />
 
         <TextView
-            android:id="@+id/tv_nascimento"
+            android:id="@+id/tv_nascimento_cadastro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Informe sua data de nascimento:"
@@ -72,7 +72,7 @@
             />
 
         <EditText
-            android:id="@+id/ed_nascimento"
+            android:id="@+id/ed_nascimento_cadastro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
@@ -82,7 +82,7 @@
 
 
         <TextView
-            android:id="@+id/tv_cpf"
+            android:id="@+id/tv_cpf_cadastro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Informe seu CPF:"
@@ -90,7 +90,7 @@
             />
 
         <EditText
-            android:id="@+id/ed_cpf"
+            android:id="@+id/ed_cpf_cadastro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
@@ -99,14 +99,14 @@
             />
 
         <TextView
-            android:id="@+id/tv_senha"
+            android:id="@+id/tv_senha_cadastro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Informe sua senha:"
             android:gravity="center"/>
 
         <EditText
-            android:id="@+id/ed_senha"
+            android:id="@+id/ed_senha_cadastro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -115,7 +115,7 @@
             />
 
         <TextView
-            android:id="@+id/tv_fidelidade"
+            android:id="@+id/tv_fidelidade_cadastro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Opção de fidelidade:"
@@ -123,20 +123,20 @@
             />
 
         <RadioGroup
-            android:id="@+id/op_fidelidade"
+            android:id="@+id/op_fidelidade_cadastro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" >
 
             <RadioButton
-                android:id="@+id/rb_sim"
+                android:id="@+id/rb_sim_cadastro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="SIM" />
 
             <RadioButton
-                android:id="@+id/rb_nao"
+                android:id="@+id/rb_nao_cadastro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="NÃO" />
@@ -145,7 +145,7 @@
 
 
         <Button
-            android:id="@+id/bt_cadastrar"
+            android:id="@+id/bt_cadastrar_cadastro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="CADASTRAR"

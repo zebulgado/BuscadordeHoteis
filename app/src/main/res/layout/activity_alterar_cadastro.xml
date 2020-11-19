@@ -17,7 +17,7 @@
                     android:orientation="vertical">
 
                         <EditText
-                            android:id="@+id/ed_cpf"
+                            android:id="@+id/ed_cpf_consulta_alterar_cadastro"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
@@ -26,7 +26,7 @@
                             />
 
                         <Button
-                            android:id="@+id/bt_consultar"
+                            android:id="@+id/bt_consultar_alterar_cadastro"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -34,7 +34,7 @@
                             />
 
                         <TextView
-                        android:id="@+id/tv_nome"
+                        android:id="@+id/tv_nome_alterar_cadastro"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Nome:"
@@ -42,7 +42,7 @@
                         />
 
                         <EditText
-                            android:id="@+id/ed_retono_nome"
+                            android:id="@+id/ed_nome_alterar_cadastro"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
@@ -52,7 +52,7 @@
                             />
 
                         <TextView
-                            android:id="@+id/tv_telefone"
+                            android:id="@+id/tv_telefone_alterar_cadastro"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Telefone:"
@@ -60,7 +60,7 @@
                             />
 
                         <EditText
-                            android:id="@+id/ed_retono_telefone"
+                            android:id="@+id/ed_telefone_alterar_cadastro"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
@@ -70,7 +70,7 @@
                             />
 
                         <TextView
-                            android:id="@+id/tv_email"
+                            android:id="@+id/tv_email_alterar_cadastro"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Email:"
@@ -78,7 +78,7 @@
                             />
 
                         <EditText
-                            android:id="@+id/ed_retono_email"
+                            android:id="@+id/ed_email_alterar_cadastro"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
@@ -88,7 +88,7 @@
                             />
 
                         <TextView
-                            android:id="@+id/tv_data_nascimento"
+                            android:id="@+id/tv_data_alterar_nascimento"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Data de Nascimento:"
@@ -96,7 +96,7 @@
                             />
 
                         <EditText
-                            android:id="@+id/ed_retono_nascimento"
+                            android:id="@+id/ed_nascimento_alterar_cadastro"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
@@ -106,7 +106,7 @@
                             />
 
                         <TextView
-                            android:id="@+id/tv_cpf"
+                            android:id="@+id/tv_cpf_alterar_cadastro"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="CPF:"
@@ -114,7 +114,7 @@
                             />
 
                         <EditText
-                            android:id="@+id/ed_retono_cpf"
+                            android:id="@+id/ed_cpf_alterar_cadastro"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
@@ -124,7 +124,7 @@
                             />
 
                         <TextView
-                            android:id="@+id/tv_senha"
+                            android:id="@+id/tv_senha_alterar_cadastro"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Senha:"
@@ -132,7 +132,7 @@
                             />
 
                         <EditText
-                            android:id="@+id/ed_retono_senha"
+                            android:id="@+id/ed_senha_alterar_cadastro"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
@@ -142,7 +142,7 @@
                             />
 
                         <TextView
-                            android:id="@+id/tv_fidelidade"
+                            android:id="@+id/tv_fidelidade_alterar_cadastro"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Opção de fidelidade:"
@@ -150,21 +150,21 @@
                             />
 
                         <RadioGroup
-                            android:id="@+id/op_fidelidade"
+                            android:id="@+id/op_fidelidade_alterar_cadastro"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintEnd_toEndOf="parent" >
 
                                 <RadioButton
-                                    android:id="@+id/rb_sim"
+                                    android:id="@+id/rb_sim_alterar_cadastro"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:enabled="false"
                                     android:text="SIM" />
 
                                 <RadioButton
-                                    android:id="@+id/rb_nao"
+                                    android:id="@+id/rb_nao_alterar_cadastro"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:enabled="false"
@@ -173,14 +173,14 @@
                         </RadioGroup>
 
                         <CheckBox
-                            android:id="@+id/cb_excluir"
+                            android:id="@+id/cb_excluir_alterar_cadastro"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:enabled="false"
                             android:text="Ecluir conta"/>
 
                         <Button
-                            android:id="@+id/bt_salvar"
+                            android:id="@+id/bt_salvar_alterar_cadastro"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -189,7 +189,7 @@
                             />
 
                         <Button
-                            android:id="@+id/bt_atualizar"
+                            android:id="@+id/bt_atualizar_alterar_cadastro"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -197,7 +197,7 @@
                             />
 
                         <Button
-                            android:id="@+id/bt_voltar"
+                            android:id="@+id/bt_voltar_alterar_cadastro"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"

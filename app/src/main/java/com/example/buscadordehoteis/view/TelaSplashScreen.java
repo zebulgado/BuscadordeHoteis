@@ -18,9 +18,9 @@ public class TelaSplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_splash_screen);
 
-        btButton = findViewById(R.id.bt_button);
+        btButton = findViewById(R.id.bt_button_splash_screen);
         btButton.setOnClickListener(v -> {
-            Intent telaPrincipal = new Intent(TelaSplashScreen.this, TelaPrincipal.class);
+            Intent telaPrincipal = new Intent(TelaSplashScreen.this, TelaLogin.class);
             startActivity(telaPrincipal);
         });
 

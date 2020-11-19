@@ -16,8 +16,8 @@
         <activity android:name=".view.TelaCadastro"/>
         <activity android:name=".view.TelaAlterarCadastro"/>
         <activity android:name=".view.TelaPrincipal" />
-        <activity android:name=".view.TelaSplashScreen"/>
-        <activity android:name=".view.TelaLogin">
+        <activity android:name=".view.TelaLogin"/>
+        <activity android:name=".view.TelaSplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

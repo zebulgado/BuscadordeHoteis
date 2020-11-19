@@ -7,44 +7,44 @@
     tools:context="com.example.buscadordehoteis.view.TelaLogin">
 
     <TextView
-        android:id="@+id/tv_cpf"
+        android:id="@+id/tv_cpf_cadastro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Informe seu CPF:"
         android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/ed_cpf"
+        app:layout_constraintBottom_toBottomOf="@id/ed_cpf_cadastro"
 
          />
 
     <EditText
-        android:id="@+id/ed_cpf"
+        android:id="@+id/ed_cpf_cadastro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
         android:autofillHints="CPF - APENAS NÚMEROS"
         android:hint="Nome de Usuário"
-        app:layout_constraintTop_toBottomOf="@id/tv_cpf"
-        app:layout_constraintBottom_toTopOf="@+id/tv_senha"
+        app:layout_constraintTop_toBottomOf="@id/tv_cpf_cadastro"
+        app:layout_constraintBottom_toTopOf="@+id/tv_senha_cadastro"
         />
 
     <TextView
-        android:id="@+id/tv_senha"
+        android:id="@+id/tv_senha_cadastro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Informe sua senha:"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/ed_cpf"
-        app:layout_constraintBottom_toTopOf="@id/ed_senha"/>
+        app:layout_constraintTop_toBottomOf="@id/ed_cpf_cadastro"
+        app:layout_constraintBottom_toTopOf="@id/ed_senha_cadastro"/>
 
     <EditText
-        android:id="@+id/ed_senha"
+        android:id="@+id/ed_senha_cadastro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:autofillHints="Senha de Usuário"
         android:hint="Senha de Usuário"
-        app:layout_constraintTop_toBottomOf="@id/tv_senha"
+        app:layout_constraintTop_toBottomOf="@id/tv_senha_cadastro"
         app:layout_constraintBottom_toTopOf="@id/bt_entrar"
         />
 
@@ -55,7 +55,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/bt_depois"
         app:layout_constraintBottom_toTopOf="@id/bt_novo_usuario"
-        app:layout_constraintTop_toBottomOf="@id/ed_senha"
+        app:layout_constraintTop_toBottomOf="@id/ed_senha_cadastro"
         android:text="ENTRAR"/>
 
     <Button
@@ -66,7 +66,7 @@
         app:layout_constraintBottom_toTopOf="@+id/bt_novo_usuario"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/bt_entrar"
-        app:layout_constraintTop_toBottomOf="@+id/ed_senha" />
+        app:layout_constraintTop_toBottomOf="@+id/ed_senha_cadastro" />
 
     <Button
         android:id="@+id/bt_novo_usuario"
