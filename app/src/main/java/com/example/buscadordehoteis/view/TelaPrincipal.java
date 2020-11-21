@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 import com.example.buscadordehoteis.R;
@@ -19,6 +18,11 @@ public class TelaPrincipal extends AppCompatActivity {
 
         btAvancar = findViewById(R.id.bt_avancar);
         btVoltar = findViewById(R.id.bt_voltar);
+
+        btAvancar.setOnClickListener(v -> {
+            Intent telaHotel = new Intent(TelaPrincipal.this, ViewPagerActivityHotel.class);
+            startActivity(telaHotel);
+        });
 
         btVoltar.setOnClickListener(v -> {
             finish();

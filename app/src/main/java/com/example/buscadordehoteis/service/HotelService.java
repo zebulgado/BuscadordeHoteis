@@ -15,7 +15,7 @@ public interface HotelService {
     Call<List<Hotel>> getAllHotel();
 
     @GET("hotel")
-    Call<Hotel> getHotel(String s);
+    Call<Hotel> getHotel(String cnpj);
 
     @POST("hotel")
     void insert();

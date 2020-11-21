@@ -1,9 +1,16 @@
 package com.example.buscadordehoteis.model;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
 import java.util.Date;
 import java.util.List;
 
 public class Guest {
+
     private String cpf;
     private String name;
     private String email;
@@ -14,6 +21,16 @@ public class Guest {
     private List<Reservation> reservation;
 
     public Guest() {
+    }
+
+    public Guest(String cpf, String name, String email, String password, String phone, Date birthDate, Boolean isLoyalty) {
+        this.cpf = cpf;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.phone = phone;
+        this.birthDate = birthDate;
+        this.isLoyalty = isLoyalty;
     }
 
     public String getCpf() {

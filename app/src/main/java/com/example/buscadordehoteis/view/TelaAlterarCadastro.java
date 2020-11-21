@@ -60,7 +60,6 @@ public class TelaAlterarCadastro extends AppCompatActivity {
             getRequest.enqueue(new Callback<Guest>() {
                 @Override
                 public void onResponse(Call<Guest> call, Response<Guest> response) {
-                    cadastroLocalizado = true;
                     Guest guest = response.body();
                     edRetornoCpf.setText(guest.getCpf());
                     edRetornoEmail.setText(guest.getEmail());
@@ -83,7 +82,7 @@ public class TelaAlterarCadastro extends AppCompatActivity {
                     Toast.makeText(TelaAlterarCadastro.this, "Sua request falhou!", Toast.LENGTH_LONG).show();
                 }
             });
-        });
+            });
 
         btAtualizar.setOnClickListener(v -> {
             if (cadastroLocalizado) {

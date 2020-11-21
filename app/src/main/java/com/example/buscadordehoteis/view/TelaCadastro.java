@@ -29,7 +29,6 @@ public class TelaCadastro extends AppCompatActivity {
     RadioGroup rgFidelidade;
     RadioButton rbSim, rbNao;
     Button btCadastrar, btDevAlterarCadastro;
-    Date nascimento = new Date();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,18 +50,18 @@ public class TelaCadastro extends AppCompatActivity {
         btCadastrar.setOnClickListener(v -> {
 
 //MONTANDO O GUEST
-            Guest novoGuest = new Guest();
-            novoGuest.setName(edNome.getText().toString());
-            novoGuest.setEmail(edEmail.getText().toString());
-            novoGuest.setPhone(edTelefone.getText().toString());
-            novoGuest.setCpf(edCpf.getText().toString());
-            novoGuest.setPassword(edSenha.getText().toString());
-            novoGuest.setBirthDate(metodosUtil.conversorStringData(edNascimento.getText().toString()));
-            novoGuest.setIsLoyalty(metodosUtil.verificarFidelidade(rgFidelidade));
+            Guest novoGuest = new Guest(edCpf.getText().toString(),
+                    edNome.getText().toString(),
+                    edEmail.getText().toString(),
+                    edSenha.getText().toString(),
+                    edTelefone.getText().toString(),
+                    metodosUtil.conversorStringData(edNascimento.getText().toString()),
+                    metodosUtil.verificarFidelidade(rgFidelidade)
+                    );
 //ENVIA GUEST PARA BACKEND
             RetrofitConfig retrofitConfig = new RetrofitConfig();
-            Call<Guest> createRequest = retrofitConfig.getGuestService().insertGuest(novoGuest);
-            createRequest.enqueue(new Callback<Guest>() {
+            Call<Guest> createRequestCall = retrofitConfig.getGuestService().insertGuest(novoGuest);
+            createRequestCall.enqueue(new Callback<Guest>() {
                 @Override
                 public void onResponse(Call<Guest> call, Response<Guest> response) {
                     finish();
@@ -70,7 +69,7 @@ public class TelaCadastro extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<Guest> call, Throwable t) {
-                    Log.e("GuestService   ", "Erro ao buscar o guest:" + t.getMessage());
+                    Log.e("GuestService   ", "Erro ao cadastrar o guest:" + t.getMessage());
                     Toast.makeText(TelaCadastro.this, "Sua request falhou!", Toast.LENGTH_LONG).show();
                 }
             });

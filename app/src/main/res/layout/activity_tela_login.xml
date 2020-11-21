@@ -7,75 +7,75 @@
     tools:context="com.example.buscadordehoteis.view.TelaLogin">
 
     <TextView
-        android:id="@+id/tv_cpf_cadastro"
+        android:id="@+id/tv_cpf_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Informe seu CPF:"
         android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/ed_cpf_cadastro"
+        app:layout_constraintBottom_toBottomOf="@id/ed_cpf_login"
 
          />
 
     <EditText
-        android:id="@+id/ed_cpf_cadastro"
+        android:id="@+id/ed_cpf_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="text"
         android:autofillHints="CPF - APENAS NÚMEROS"
         android:hint="Nome de Usuário"
-        app:layout_constraintTop_toBottomOf="@id/tv_cpf_cadastro"
-        app:layout_constraintBottom_toTopOf="@+id/tv_senha_cadastro"
+        app:layout_constraintTop_toBottomOf="@id/tv_cpf_login"
+        app:layout_constraintBottom_toTopOf="@+id/tv_senha_login"
         />
 
     <TextView
-        android:id="@+id/tv_senha_cadastro"
+        android:id="@+id/tv_senha_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Informe sua senha:"
         android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/ed_cpf_cadastro"
-        app:layout_constraintBottom_toTopOf="@id/ed_senha_cadastro"/>
+        app:layout_constraintTop_toBottomOf="@id/ed_cpf_login"
+        app:layout_constraintBottom_toTopOf="@id/ed_senha_login"/>
 
     <EditText
-        android:id="@+id/ed_senha_cadastro"
+        android:id="@+id/ed_senha_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:autofillHints="Senha de Usuário"
         android:hint="Senha de Usuário"
-        app:layout_constraintTop_toBottomOf="@id/tv_senha_cadastro"
-        app:layout_constraintBottom_toTopOf="@id/bt_entrar"
+        app:layout_constraintTop_toBottomOf="@id/tv_senha_login"
+        app:layout_constraintBottom_toTopOf="@id/bt_entrar_login"
         />
 
     <Button
-        android:id="@+id/bt_entrar"
+        android:id="@+id/bt_entrar_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/bt_depois"
-        app:layout_constraintBottom_toTopOf="@id/bt_novo_usuario"
-        app:layout_constraintTop_toBottomOf="@id/ed_senha_cadastro"
+        app:layout_constraintEnd_toStartOf="@id/bt_depois_login"
+        app:layout_constraintBottom_toTopOf="@id/bt_novo_usuario_login"
+        app:layout_constraintTop_toBottomOf="@id/ed_senha_login"
         android:text="ENTRAR"/>
 
     <Button
-        android:id="@+id/bt_depois"
+        android:id="@+id/bt_depois_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="depois"
-        app:layout_constraintBottom_toTopOf="@+id/bt_novo_usuario"
+        app:layout_constraintBottom_toTopOf="@+id/bt_novo_usuario_login"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/bt_entrar"
-        app:layout_constraintTop_toBottomOf="@+id/ed_senha_cadastro" />
+        app:layout_constraintStart_toEndOf="@id/bt_entrar_login"
+        app:layout_constraintTop_toBottomOf="@+id/ed_senha_login" />
 
     <Button
-        android:id="@+id/bt_novo_usuario"
+        android:id="@+id/bt_novo_usuario_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="novo usuário"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_entrar" />
+        app:layout_constraintTop_toBottomOf="@+id/bt_entrar_login" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
