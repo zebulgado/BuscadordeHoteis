@@ -1,6 +1,8 @@
 package com.example.buscadordehoteis.view;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import android.os.Bundle;
 import android.text.Editable;
@@ -60,6 +62,7 @@ public class TelaAlterarCadastro extends AppCompatActivity {
             getRequest.enqueue(new Callback<Guest>() {
                 @Override
                 public void onResponse(Call<Guest> call, Response<Guest> response) {
+                    cadastroLocalizado = true;
                     Guest guest = response.body();
                     edRetornoCpf.setText(guest.getCpf());
                     edRetornoEmail.setText(guest.getEmail());
@@ -100,23 +103,10 @@ public class TelaAlterarCadastro extends AppCompatActivity {
         btSalvar.setOnClickListener(v -> {
 // Verifica se deve apagar o cadastro
             if (cbExcluir.isChecked()){
-                RetrofitConfig retrofitConfig = new RetrofitConfig();
-                Call<Void> deleteRequest = retrofitConfig.getGuestService().delete(edRetornoCpf.getText().toString());
-                deleteRequest.enqueue(new Callback<Void>() {
-                    @Override
-                    public void onResponse(Call<Void> call, Response<Void> response) {
-                       /* AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-                        builder.setMessage(R.string.dialog_message)
-                                .setTitle(R.string.dialog_title);
-                        AlertDialog dialog = builder.create();*/
-                    }
+                DialogFragment excluirCadastroDialog = new ExcluirCadastroDialogFragment(
+                        edRetornoCpf.getText().toString(), TelaAlterarCadastro.this);
+                excluirCadastroDialog.show(getSupportFragmentManager(), "Exlcuindo conta");
 
-                    @Override
-                    public void onFailure(Call<Void> call, Throwable t) {
-                        Log.e("GuestService   ", "Erro ao apagar o guest:" + t.getMessage());
-                        Toast.makeText(TelaAlterarCadastro.this, "Sua request falhou!", Toast.LENGTH_LONG).show();
-                    }
-                });
 // Atualiza o cadastro
             } else {
                 RetrofitConfig retrofitConfig = new RetrofitConfig();
@@ -177,4 +167,8 @@ public class TelaAlterarCadastro extends AppCompatActivity {
             }
         });
     }
+//
+//    public static void finalizaActitivy(){
+//        TelaAlterarCadastro.finish();
+//    }
 }

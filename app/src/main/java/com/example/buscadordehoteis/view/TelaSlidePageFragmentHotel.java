@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.buscadordehoteis.R;
 
@@ -16,8 +17,16 @@ public class TelaSlidePageFragmentHotel extends Fragment {
 
     private int number = 0;
 
+    TextView tvNome, tvPreco;
+
     public TelaSlidePageFragmentHotel(int number) {
         this.number = number;
+
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 
     @Override

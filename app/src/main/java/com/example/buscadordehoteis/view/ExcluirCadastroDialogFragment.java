@@ -1,0 +1,61 @@
+package com.example.buscadordehoteis.view;
+
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
+
+import androidx.fragment.app.DialogFragment;
+
+import com.example.buscadordehoteis.repository.RetrofitConfig;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class ExcluirCadastroDialogFragment extends DialogFragment {
+
+    private String Cpf;
+    private Context context;
+
+    public ExcluirCadastroDialogFragment(String Cpf, Context context) {
+        this.Cpf = Cpf;
+        this.context = context;
+    }
+
+
+    @Override
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setMessage("Ao clicar em OK sua conta será completamente apagada.")
+                .setTitle("Confirma Exclusão?")
+                .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        RetrofitConfig retrofitConfig = new RetrofitConfig();
+                        Call<Void> deleteRequest = retrofitConfig.getGuestService().delete(Cpf);
+                        deleteRequest.enqueue(new Callback<Void>() {
+                            @Override
+                            public void onResponse(Call<Void> call, Response<Void> response) {
+                            }
+
+                            @Override
+                            public void onFailure(Call<Void> call, Throwable t) {
+                                Log.e("GuestService   ", "Erro ao apagar o guest:" + t.getMessage());
+                                Toast.makeText(context, "Sua request falhou!", Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    }
+                })
+                .setNegativeButton("Não", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                });
+
+        return builder.create();
+    }
+}
+

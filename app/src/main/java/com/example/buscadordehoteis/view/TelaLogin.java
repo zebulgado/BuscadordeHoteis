@@ -50,11 +50,12 @@ public class TelaLogin extends AppCompatActivity {
             getRequest.enqueue(new Callback<Boolean>() {
                 @Override
                 public void onResponse(Call<Boolean> call, Response<Boolean> response) {
-                    Boolean teste = response.body();
-                    if (teste) {
-                        Toast.makeText(TelaLogin.this, "Funcionou", Toast.LENGTH_SHORT).show();
+                    Boolean validou = response.body();
+                    if (validou) {
+                        Intent telaPrincipal = new Intent(TelaLogin.this, TelaPrincipal.class);
+                        startActivity(telaPrincipal);
                     } else {
-                        Toast.makeText(TelaLogin.this, "Erro de login", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(TelaLogin.this, "CPF ou Senha incorretos.", Toast.LENGTH_SHORT).show();
                     }
                 }
 

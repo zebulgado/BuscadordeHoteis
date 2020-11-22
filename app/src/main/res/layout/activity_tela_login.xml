@@ -1,80 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.buscadordehoteis.view.TelaLogin">
 
-    <TextView
-        android:id="@+id/tv_cpf_login"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Informe seu CPF:"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/ed_cpf_login"
-        />
+        android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/ed_cpf_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:autofillHints="CPF - APENAS NÚMEROS"
-        android:hint="Nome de Usuário"
-        app:layout_constraintTop_toBottomOf="@id/tv_cpf_login"
-        app:layout_constraintBottom_toTopOf="@+id/tv_senha_login"
-        />
+        <ImageView
+            android:id="@+id/iv_background"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:src="@drawable/praia"
+            android:scaleType="fitXY"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-    <TextView
-        android:id="@+id/tv_senha_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Informe sua senha:"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/ed_cpf_login"
-        app:layout_constraintBottom_toTopOf="@id/ed_senha_login"/>
+        <LinearLayout
+            android:id="@+id/cl_formulario_tela_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/iv_background"
+            app:layout_constraintBottom_toTopOf="@id/ll_botoes_tela_login"
+            >
 
-    <EditText
-        android:id="@+id/ed_senha_login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:autofillHints="Senha de Usuário"
-        android:hint="Senha de Usuário"
-        app:layout_constraintTop_toBottomOf="@id/tv_senha_login"
-        app:layout_constraintBottom_toTopOf="@id/bt_entrar_login"
-        />
+            <TextView
+                android:id="@+id/tv_cpf_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Informe seu CPF:"
+                android:paddingBottom="10dp"
+                android:gravity="center"
+                />
 
-    <Button
-        android:id="@+id/bt_entrar_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/bt_depois_login"
-        app:layout_constraintBottom_toTopOf="@id/bt_novo_usuario_login"
-        app:layout_constraintTop_toBottomOf="@id/ed_senha_login"
-        android:text="ENTRAR"/>
+            <EditText
+                android:id="@+id/ed_cpf_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:inputType="text"
+                android:autofillHints="CPF - APENAS NÚMEROS"
+                android:hint="Nome de Usuário"
+                />
 
-    <Button
-        android:id="@+id/bt_depois_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="depois"
-        app:layout_constraintBottom_toTopOf="@+id/bt_novo_usuario_login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/bt_entrar_login"
-        app:layout_constraintTop_toBottomOf="@+id/ed_senha_login" />
+            <TextView
+                android:id="@+id/tv_senha_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp"
+                android:text="Informe sua senha:"
+                android:gravity="center"/>
 
-    <Button
-        android:id="@+id/bt_novo_usuario_login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="novo usuário"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bt_entrar_login" />
+            <EditText
+                android:id="@+id/ed_senha_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:autofillHints="Senha de Usuário"
+                android:hint="Senha de Usuário"
+                />
+        </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ll_botoes_tela_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/cl_formulario_tela_login"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <Button
+                android:id="@+id/bt_entrar_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/bt_novo_usuario_login"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/bt_depois_login"
+                android:text="ENTRAR"/>
+
+            <Button
+                android:id="@+id/bt_depois_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/bt_novo_usuario_login"
+                app:layout_constraintStart_toEndOf="@id/bt_entrar_login"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="depois" />
+
+            <Button
+                android:id="@+id/bt_novo_usuario_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/bt_entrar_login"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="novo usuário" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
