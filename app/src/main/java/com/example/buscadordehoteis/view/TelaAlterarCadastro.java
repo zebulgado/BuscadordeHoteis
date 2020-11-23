@@ -21,16 +21,18 @@ import com.example.buscadordehoteis.repository.RetrofitConfig;
 import com.example.buscadordehoteis.service.metodosUtil;
 import com.example.buscadordehoteis.view.dialog.ExcluirCadastroDialogFragment;
 
+import br.com.sapereaude.maskedEditText.MaskedEditText;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.example.buscadordehoteis.view.validacao.ValidandoCampos.checarRadioGroup;
-import static com.example.buscadordehoteis.view.validacao.ValidandoCampos.checarVazio;
+import static com.example.buscadordehoteis.service.validacao.ValidandoCampos.checarRadioGroup;
+import static com.example.buscadordehoteis.service.validacao.ValidandoCampos.checarVazio;
 
 public class TelaAlterarCadastro extends AppCompatActivity {
-    EditText edCpf;
-    EditText edRetornoNome, edRetornoTelefone, edRetornoEmail, edRetornoCpf, edRetornoNascimento, edRetornoSenha;
+    MaskedEditText edCpf;
+    EditText edRetornoNome, edRetornoTelefone, edRetornoEmail, edRetornoNascimento, edRetornoSenha;
+    MaskedEditText edRetornoCpf;
     RadioGroup rgRetornoFidelidade;
     RadioButton rbSim, rbNao;
     Button btConsultar, btAtualizar, btSalvar, btVoltar;
@@ -59,35 +61,33 @@ public class TelaAlterarCadastro extends AppCompatActivity {
         cbExcluir = findViewById(R.id.cb_excluir_alterar_cadastro);
         btVoltar = findViewById(R.id.bt_voltar_alterar_cadastro);
 
-        btConsultar.setOnClickListener(v -> {
-            RetrofitConfig retrofitConfig = new RetrofitConfig();
-            Call<Guest> getRequest = retrofitConfig.getGuestService().getGuest(edCpf.getText().toString());
-            getRequest.enqueue(new Callback<Guest>() {
-                @Override
-                public void onResponse(Call<Guest> call, Response<Guest> response) {
-                    cadastroLocalizado = true;
-                    Guest guest = response.body();
-                    edRetornoCpf.setText(guest.getCpf());
-                    edRetornoEmail.setText(guest.getEmail());
-                    edRetornoNascimento.setText(guest.getBirthDate().toString());
-                    edRetornoNome.setText(guest.getName());
-                    edRetornoTelefone.setText(guest.getPhone());
-                    retornoSenha = guest.getPassword();
-                    if (guest.getIsLoyalty()){
-                        rgRetornoFidelidade.check(R.id.rb_sim_alterar_cadastro);
-                        respostaFidelidade = true;
-                    } else {
-                        rgRetornoFidelidade.check(R.id.rb_nao_alterar_cadastro);
-                        respostaFidelidade = false;
-                    }
+        RetrofitConfig retrofitConfig = new RetrofitConfig();
+        Call<Guest> getRequest = retrofitConfig.getGuestService().getGuest(edCpf.getRawText());
+        getRequest.enqueue(new Callback<Guest>() {
+            @Override
+            public void onResponse(Call<Guest> call, Response<Guest> response) {
+                cadastroLocalizado = true;
+                Guest guest = response.body();
+                edRetornoCpf.setText(guest.getCpf());
+                edRetornoEmail.setText(guest.getEmail());
+                edRetornoNascimento.setText(guest.getBirthDate().toString());
+                edRetornoNome.setText(guest.getName());
+                edRetornoTelefone.setText(guest.getPhone());
+                retornoSenha = guest.getPassword();
+                if (guest.getIsLoyalty()){
+                    rgRetornoFidelidade.check(R.id.rb_sim_alterar_cadastro);
+                    respostaFidelidade = true;
+                } else {
+                    rgRetornoFidelidade.check(R.id.rb_nao_alterar_cadastro);
+                    respostaFidelidade = false;
                 }
+            }
 
-                @Override
-                public void onFailure(Call<Guest> call, Throwable t) {
-                    Log.e("GuestService   ", "Erro ao buscar o guest:" + t.getMessage());
-                    Toast.makeText(TelaAlterarCadastro.this, "Sua request falhou!", Toast.LENGTH_LONG).show();
-                }
-            });
+            @Override
+            public void onFailure(Call<Guest> call, Throwable t) {
+                Log.e("GuestService   ", "Erro ao buscar o guest:" + t.getMessage());
+                Toast.makeText(TelaAlterarCadastro.this, "Sua request falhou!", Toast.LENGTH_LONG).show();
+            }
         });
 
         btAtualizar.setOnClickListener(v -> {
@@ -114,9 +114,8 @@ public class TelaAlterarCadastro extends AppCompatActivity {
             } else if (checarVazio(edRetornoEmail)) {
             } else if (checarRadioGroup(rgRetornoFidelidade, TelaAlterarCadastro.this)) {
             } else {
-                RetrofitConfig retrofitConfig = new RetrofitConfig();
-                Call<Guest> getRequest = retrofitConfig.getGuestService().getGuest(edRetornoCpf.getText().toString());
-                getRequest.enqueue(new Callback<Guest>() {
+                Call<Guest> updateRequest = retrofitConfig.getGuestService().getGuest(edRetornoCpf.getRawText());
+                updateRequest.enqueue(new Callback<Guest>() {
                     @Override
                     public void onResponse(Call<Guest> call, Response<Guest> response) {
                         Guest atualizadoGuest = response.body();

@@ -7,7 +7,7 @@
     tools:context=".view.TelaAlterarCadastro">
 
         <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/sv_hotel"
+            android:id="@+id/sv_alterar_cadastro"
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
 
@@ -16,13 +16,17 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                        <EditText
+                        <br.com.sapereaude.maskedEditText.MaskedEditText
                             android:id="@+id/ed_cpf_consulta_alterar_cadastro"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:layout_marginBottom="10dp"
-                            android:text=""
+                            android:inputType="number"
+                            android:hint="###########"
+                            app:keep_hint="true"
+                            app:allowed_chars="1234567890"
+                            android:typeface="monospace"
+                            app:mask="###.###.###-##"
                             />
 
                         <Button
@@ -114,14 +118,17 @@
                             android:gravity="center"
                             />
 
-                        <EditText
+                        <br.com.sapereaude.maskedEditText.MaskedEditText
                             android:id="@+id/ed_cpf_alterar_cadastro"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:layout_marginBottom="10dp"
-                            android:text=""
                             android:enabled="false"
+                            android:inputType="number"
+                            app:allowed_chars="1234567890"
+                            android:typeface="monospace"
+                            app:mask="###.###.###-##"
                             />
 
                         <TextView
@@ -207,8 +214,4 @@
 
                         </LinearLayout>
         </ScrollView>
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

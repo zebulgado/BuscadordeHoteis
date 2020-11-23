@@ -1,10 +1,11 @@
-package com.example.buscadordehoteis.view.validacao;
+package com.example.buscadordehoteis.service.validacao;
 
 import android.content.Context;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import br.com.sapereaude.maskedEditText.MaskedEditText;
 
 public class ValidandoCampos {
 
@@ -18,8 +19,18 @@ public class ValidandoCampos {
         }
     }
 
-    public static Boolean validarCpf(EditText campo) {
-        if (campo.getText().toString().length() != 11) {
+    public static Boolean checarVazio(MaskedEditText campo) {
+        if (campo.getRawText().length() == 0) {
+            campo.requestFocus();
+            campo.setError("Este campo não pode estar vazio");
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static Boolean validarCpf(MaskedEditText campo) {
+        if (campo.getRawText().length() != 11) {
             campo.requestFocus();
             campo.setError("Formato de CPF inválido");
             return true;
@@ -29,7 +40,7 @@ public class ValidandoCampos {
     }
 
     public static Boolean validarNascimento(EditText campo) {
-        if (campo.getText().toString().length() != 8) {
+        if (campo.getText().toString().length() != 10) {
             campo.requestFocus();
             campo.setError("Formato de data inválido");
             return true;

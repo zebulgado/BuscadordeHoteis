@@ -2,6 +2,7 @@ package com.example.buscadordehoteis.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,21 +17,28 @@ import com.example.buscadordehoteis.model.Guest;
 import com.example.buscadordehoteis.repository.RetrofitConfig;
 import com.example.buscadordehoteis.service.metodosUtil;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
+
+import br.com.sapereaude.maskedEditText.MaskedEditText;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.example.buscadordehoteis.view.validacao.ValidandoCampos.checarRadioGroup;
-import static com.example.buscadordehoteis.view.validacao.ValidandoCampos.checarVazio;
-import static com.example.buscadordehoteis.view.validacao.ValidandoCampos.validarCpf;
-import static com.example.buscadordehoteis.view.validacao.ValidandoCampos.validarNascimento;
+import static com.example.buscadordehoteis.service.validacao.ValidandoCampos.checarRadioGroup;
+import static com.example.buscadordehoteis.service.validacao.ValidandoCampos.checarVazio;
+import static com.example.buscadordehoteis.service.validacao.ValidandoCampos.validarCpf;
+import static com.example.buscadordehoteis.service.validacao.ValidandoCampos.validarNascimento;
 
 public class TelaCadastro extends AppCompatActivity {
 
-    EditText edNome, edEmail, edNascimento, edSenha, edTelefone, edCpf;
+    EditText edNome, edEmail, edNascimento, edSenha, edTelefone;
+    MaskedEditText edCpf;
     RadioGroup rgFidelidade;
     RadioButton rbSim, rbNao;
     Button btCadastrar, btDevAlterarCadastro;
+    final Calendar calendario = Calendar.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +57,23 @@ public class TelaCadastro extends AppCompatActivity {
         rbSim = findViewById(R.id.rb_sim_cadastro);
         btDevAlterarCadastro = findViewById(R.id.dev_bt_chamar_alterar_cadastro);
 
+        DatePickerDialog.OnDateSetListener date = (view, year, monthOfYear, dayOfMonth) -> {
+            calendario.set(Calendar.YEAR, year);
+            calendario.set(Calendar.MONTH, monthOfYear);
+            calendario.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+            updateLabel();
+        };
+
+        edNascimento.setOnClickListener(v -> {
+            new DatePickerDialog(TelaCadastro.this, date, calendario
+                    .get(Calendar.YEAR), calendario.get(Calendar.MONTH),
+                    calendario.get(Calendar.DAY_OF_MONTH)).show();
+        });
+
         btCadastrar.setOnClickListener(v -> {
 
 //MONTANDO O GUEST
-            Guest novoGuest = new Guest(edCpf.getText().toString(),
+            Guest novoGuest = new Guest(edCpf.getRawText(),
                     edNome.getText().toString(),
                     edEmail.getText().toString(),
                     edSenha.getText().toString(),
@@ -85,7 +106,6 @@ public class TelaCadastro extends AppCompatActivity {
                         Toast.makeText(TelaCadastro.this, "Sua request falhou!", Toast.LENGTH_LONG).show();
                     }
                 });
-//            edCpf.addTextChangedListener(Mask.insert(Mask.CPF_MASK, edCpf));
             }
         });
 
@@ -93,5 +113,12 @@ public class TelaCadastro extends AppCompatActivity {
             Intent telaCadastro = new Intent(TelaCadastro.this, TelaAlterarCadastro.class);
             startActivity(telaCadastro);
         });
+    }
+
+    private void updateLabel() {
+        String myFormat = "dd/MM/yyyy";
+        SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+
+        edNascimento.setText(sdf.format(calendario.getTime()));
     }
 }

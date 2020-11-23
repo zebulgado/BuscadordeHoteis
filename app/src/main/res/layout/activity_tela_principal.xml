@@ -6,50 +6,58 @@
     android:layout_height="match_parent"
     tools:context="com.example.buscadordehoteis.view.TelaPrincipal">
 
+    <ImageView
+        android:id="@+id/iv_perfil_tela_principal"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/blank_profile_picture"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <TextView
-        android:id="@+id/tv_bem_vindo"
+        android:id="@+id/tv_bem_vindo_tela_principal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/tv_escolha_pesquisa"
+        app:layout_constraintBottom_toTopOf="@+id/tv_escolha_pesquisa_tela_principal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="Seja bem vindo!"
         />
     <TextView
-        android:id="@+id/tv_escolha_pesquisa"
+        android:id="@+id/tv_escolha_pesquisa_tela_principal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tv_bem_vindo"
-        app:layout_constraintBottom_toTopOf="@id/op_pesquisa"
+        app:layout_constraintTop_toBottomOf="@+id/tv_bem_vindo_tela_principal"
+        app:layout_constraintBottom_toTopOf="@id/op_pesquisa_tela_principal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="Escolha sua forma de pesquisa:"
         />
 
     <RadioGroup
-        android:id="@+id/op_pesquisa"
+        android:id="@+id/op_pesquisa_tela_principal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tv_escolha_pesquisa"
-        app:layout_constraintBottom_toTopOf="@id/bt_avancar"
+        app:layout_constraintTop_toBottomOf="@+id/tv_escolha_pesquisa_tela_principal"
+        app:layout_constraintBottom_toTopOf="@id/bt_avancar_tela_principal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" >
 
         <RadioButton
-            android:id="@+id/rb_menor_preco"
+            android:id="@+id/rb_menor_preco_tela_principal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Menor Preço" />
 
         <RadioButton
-            android:id="@+id/rb_melhor_avaliacao"
+            android:id="@+id/rb_melhor_avaliacao_tela_principal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Melhor Avaliação" />
 
         <RadioButton
-            android:id="@+id/rb_todos"
+            android:id="@+id/rb_todos_tela_principal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Sem filtro, listar todos" />
@@ -57,22 +65,22 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/bt_voltar"
+        android:id="@+id/bt_voltar_tela_principal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/op_pesquisa"
+        app:layout_constraintTop_toBottomOf="@id/op_pesquisa_tela_principal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/bt_avancar"
+        app:layout_constraintEnd_toStartOf="@id/bt_avancar_tela_principal"
         android:text="voltar"/>
 
     <Button
-        android:id="@+id/bt_avancar"
+        android:id="@+id/bt_avancar_tela_principal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/op_pesquisa"
+        app:layout_constraintTop_toBottomOf="@id/op_pesquisa_tela_principal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/bt_voltar"
+        app:layout_constraintStart_toEndOf="@id/bt_voltar_tela_principal"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="Avançar"/>
 

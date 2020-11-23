@@ -1,6 +1,8 @@
 package com.example.buscadordehoteis.view;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,20 +13,31 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.buscadordehoteis.R;
 import com.example.buscadordehoteis.repository.RetrofitConfig;
 
+import br.com.sapereaude.maskedEditText.MaskedEditText;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static com.example.buscadordehoteis.view.validacao.ValidandoCampos.checarVazio;
+import static com.example.buscadordehoteis.service.metodosUtil.salvarLoginStatus;
+import static com.example.buscadordehoteis.service.validacao.ValidandoCampos.checarVazio;
+import static com.example.buscadordehoteis.service.validacao.ValidandoCampos.validarCpf;
 
 public class TelaLogin extends AppCompatActivity {
     Button btEntrar, btDepois, btNovoUsuario;
-    EditText edCpf, edSenha;
+    EditText edSenha;
+    MaskedEditText edCpf;
+    SharedPreferences loginStatusPreferences;
+    public final static String loginStatusFile = "LOGIN_STATUS";
+    public final static String loginStatus = "LOGGED";
+    public final static String loginId = "ID";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_login);
+
+        loginStatusPreferences = this.getSharedPreferences(loginStatusFile, Context.MODE_PRIVATE);
+        salvarLoginStatus(loginStatusPreferences, false, "convidado");
 
         btEntrar = findViewById(R.id.bt_entrar_login);
         btDepois = findViewById(R.id.bt_depois_login);
@@ -39,15 +52,17 @@ public class TelaLogin extends AppCompatActivity {
 
         btEntrar.setOnClickListener(v -> {
             if (checarVazio(edCpf)) {
+            } else if (validarCpf(edCpf)){
             } else if (checarVazio(edSenha)){
             } else {
                 RetrofitConfig retrofitConfig = new RetrofitConfig();
-                Call<Boolean> getRequest = retrofitConfig.getGuestService().checkLogin(edCpf.getText().toString(), edSenha.getText().toString());
+                Call<Boolean> getRequest = retrofitConfig.getGuestService().checkLogin(edCpf.getRawText(), edSenha.getText().toString());
                 getRequest.enqueue(new Callback<Boolean>() {
                     @Override
                     public void onResponse(Call<Boolean> call, Response<Boolean> response) {
                         Boolean validou = response.body();
                         if (validou) {
+                            salvarLoginStatus(loginStatusPreferences, true, edCpf.getRawText());
                             Intent telaPrincipal = new Intent(TelaLogin.this, TelaPrincipal.class);
                             startActivity(telaPrincipal);
                         } else {

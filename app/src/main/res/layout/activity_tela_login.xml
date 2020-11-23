@@ -39,14 +39,17 @@
                 android:gravity="center"
                 />
 
-            <EditText
+            <br.com.sapereaude.maskedEditText.MaskedEditText
                 android:id="@+id/ed_cpf_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
-                android:inputType="text"
-                android:autofillHints="CPF - APENAS NÚMEROS"
-                android:hint="Nome de Usuário"
+                android:inputType="number"
+                android:hint="###########"
+                app:keep_hint="true"
+                app:allowed_chars="1234567890"
+                android:typeface="monospace"
+                app:mask="###.###.###-##"
                 />
 
             <TextView

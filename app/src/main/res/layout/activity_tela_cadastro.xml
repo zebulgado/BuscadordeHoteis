@@ -79,9 +79,11 @@
             android:id="@+id/ed_nascimento_cadastro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:clickable="true"
+            android:inputType="date"
+            android:focusable="false"
             android:autofillHints="Data de Nascimento"
-            android:hint="Data de Nascimento - APENAS NÚMEROS"
+            android:hint="Data de Nascimento"
             />
 
 
@@ -93,14 +95,16 @@
             android:gravity="center"
             />
 
-        <EditText
+        <br.com.sapereaude.maskedEditText.MaskedEditText
             android:id="@+id/ed_cpf_cadastro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="number"
-            android:autofillHints="Nome de Usuário"
-            android:hint="CPF - APENAS NÚMEROS"
-            />
+            android:hint="###########"
+            app:keep_hint="true"
+            app:allowed_chars="1234567890"
+            android:typeface="monospace"
+            app:mask="###.###.###-##"/>
 
         <TextView
             android:id="@+id/tv_senha_cadastro"
