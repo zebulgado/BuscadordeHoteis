@@ -16,27 +16,6 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                        <br.com.sapereaude.maskedEditText.MaskedEditText
-                            android:id="@+id/ed_cpf_consulta_alterar_cadastro"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:inputType="number"
-                            android:hint="###########"
-                            app:keep_hint="true"
-                            app:allowed_chars="1234567890"
-                            android:typeface="monospace"
-                            app:mask="###.###.###-##"
-                            />
-
-                        <Button
-                            android:id="@+id/bt_consultar_alterar_cadastro"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:text="Consultar"
-                            />
-
                         <TextView
                         android:id="@+id/tv_nome_alterar_cadastro"
                         android:layout_width="match_parent"

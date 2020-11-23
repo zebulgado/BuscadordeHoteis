@@ -37,7 +37,7 @@ public class TelaCadastro extends AppCompatActivity {
     MaskedEditText edCpf;
     RadioGroup rgFidelidade;
     RadioButton rbSim, rbNao;
-    Button btCadastrar, btDevAlterarCadastro;
+    Button btCadastrar;
     final Calendar calendario = Calendar.getInstance();
 
     @Override
@@ -55,7 +55,6 @@ public class TelaCadastro extends AppCompatActivity {
         btCadastrar = findViewById(R.id.bt_cadastrar_cadastro);
         rbNao = findViewById(R.id.rb_nao_cadastro);
         rbSim = findViewById(R.id.rb_sim_cadastro);
-        btDevAlterarCadastro = findViewById(R.id.dev_bt_chamar_alterar_cadastro);
 
         DatePickerDialog.OnDateSetListener date = (view, year, monthOfYear, dayOfMonth) -> {
             calendario.set(Calendar.YEAR, year);
@@ -107,11 +106,6 @@ public class TelaCadastro extends AppCompatActivity {
                     }
                 });
             }
-        });
-
-        btDevAlterarCadastro.setOnClickListener(v -> {
-            Intent telaCadastro = new Intent(TelaCadastro.this, TelaAlterarCadastro.class);
-            startActivity(telaCadastro);
         });
     }
 
