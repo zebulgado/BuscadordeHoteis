@@ -42,7 +42,7 @@ public class ExcluirCadastroDialogFragment extends DialogFragment {
                     deleteRequest.enqueue(new Callback<Void>() {
                         @Override
                         public void onResponse(Call<Void> call, Response<Void> response) {
-                            deslogar(context); //corrigir não deslogar
+                            deslogar(context);
                             ((Activity)(context)).finish();
                         }
 

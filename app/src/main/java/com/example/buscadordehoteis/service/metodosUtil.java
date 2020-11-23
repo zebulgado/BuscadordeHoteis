@@ -76,7 +76,6 @@ public class metodosUtil {
     }
 
     public static void deslogar(Context context) {
-        SharedPreferences loginStatusPreferences = context.getSharedPreferences(loginStatusFile, Context.MODE_PRIVATE);
         salvarLoginStatus(false, "convidado", context);
     }
 }

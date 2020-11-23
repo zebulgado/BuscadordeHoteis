@@ -36,4 +36,10 @@ public class TelaPrincipal extends AppCompatActivity {
         });
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        atualizaClickPerfil(ivPerfil, TelaPrincipal.this);
+    }
 }
