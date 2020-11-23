@@ -1,4 +1,4 @@
-package com.example.buscadordehoteis.view;
+package com.example.buscadordehoteis.view.fragment;
 
 import android.os.Bundle;
 
@@ -14,10 +14,10 @@ import com.example.buscadordehoteis.model.Hotel;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link fragmentHotel#newInstance} factory method to
+ * Use the {@link FragmentHotel#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class fragmentHotel extends Fragment {
+public class FragmentHotel extends Fragment {
 
     private static final String HOTEL_NOME = "param1";
     private static final String HOTEL_PRECO = "param2";
@@ -26,12 +26,12 @@ public class fragmentHotel extends Fragment {
     private String mHotelNome;
     private String mHotelPreco;
 
-    public fragmentHotel() {
+    public FragmentHotel() {
         // Required empty public constructor
     }
 
-    public static fragmentHotel newInstance(Hotel hotel) {
-        fragmentHotel fragment = new fragmentHotel();
+    public static FragmentHotel newInstance(Hotel hotel) {
+        FragmentHotel fragment = new FragmentHotel();
         Bundle args = new Bundle();
         args.putString(HOTEL_NOME, hotel.getName());
         args.putString(HOTEL_PRECO, hotel.getRegularWeekday().toString());

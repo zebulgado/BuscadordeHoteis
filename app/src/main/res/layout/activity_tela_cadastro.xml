@@ -45,7 +45,7 @@
             android:id="@+id/ed_telefone_cadastro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
+            android:inputType="number"
             android:autofillHints="Telefone"
             android:hint="Telefone"
             />

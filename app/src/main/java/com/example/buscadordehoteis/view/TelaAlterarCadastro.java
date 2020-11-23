@@ -1,6 +1,5 @@
 package com.example.buscadordehoteis.view;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
@@ -20,10 +19,14 @@ import com.example.buscadordehoteis.R;
 import com.example.buscadordehoteis.model.Guest;
 import com.example.buscadordehoteis.repository.RetrofitConfig;
 import com.example.buscadordehoteis.service.metodosUtil;
+import com.example.buscadordehoteis.view.dialog.ExcluirCadastroDialogFragment;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.example.buscadordehoteis.view.validacao.ValidandoCampos.checarRadioGroup;
+import static com.example.buscadordehoteis.view.validacao.ValidandoCampos.checarVazio;
 
 public class TelaAlterarCadastro extends AppCompatActivity {
     EditText edCpf;
@@ -85,7 +88,7 @@ public class TelaAlterarCadastro extends AppCompatActivity {
                     Toast.makeText(TelaAlterarCadastro.this, "Sua request falhou!", Toast.LENGTH_LONG).show();
                 }
             });
-            });
+        });
 
         btAtualizar.setOnClickListener(v -> {
             if (cadastroLocalizado) {
@@ -102,12 +105,14 @@ public class TelaAlterarCadastro extends AppCompatActivity {
 
         btSalvar.setOnClickListener(v -> {
 // Verifica se deve apagar o cadastro
-            if (cbExcluir.isChecked()){
+            if (cbExcluir.isChecked()) {
                 DialogFragment excluirCadastroDialog = new ExcluirCadastroDialogFragment(
                         edRetornoCpf.getText().toString(), TelaAlterarCadastro.this);
                 excluirCadastroDialog.show(getSupportFragmentManager(), "Exlcuindo conta");
-
 // Atualiza o cadastro
+            } else if (checarVazio(edRetornoTelefone)) {
+            } else if (checarVazio(edRetornoEmail)) {
+            } else if (checarRadioGroup(rgRetornoFidelidade, TelaAlterarCadastro.this)) {
             } else {
                 RetrofitConfig retrofitConfig = new RetrofitConfig();
                 Call<Guest> getRequest = retrofitConfig.getGuestService().getGuest(edRetornoCpf.getText().toString());

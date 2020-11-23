@@ -14,14 +14,16 @@ import android.widget.Toast;
 import com.example.buscadordehoteis.R;
 import com.example.buscadordehoteis.model.Guest;
 import com.example.buscadordehoteis.repository.RetrofitConfig;
-import com.example.buscadordehoteis.service.Mask;
 import com.example.buscadordehoteis.service.metodosUtil;
-
-import java.util.Date;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.example.buscadordehoteis.view.validacao.ValidandoCampos.checarRadioGroup;
+import static com.example.buscadordehoteis.view.validacao.ValidandoCampos.checarVazio;
+import static com.example.buscadordehoteis.view.validacao.ValidandoCampos.validarCpf;
+import static com.example.buscadordehoteis.view.validacao.ValidandoCampos.validarNascimento;
 
 public class TelaCadastro extends AppCompatActivity {
 
@@ -59,21 +61,32 @@ public class TelaCadastro extends AppCompatActivity {
                     metodosUtil.verificarFidelidade(rgFidelidade)
                     );
 //ENVIA GUEST PARA BACKEND
-            RetrofitConfig retrofitConfig = new RetrofitConfig();
-            Call<Guest> createRequestCall = retrofitConfig.getGuestService().insertGuest(novoGuest);
-            createRequestCall.enqueue(new Callback<Guest>() {
-                @Override
-                public void onResponse(Call<Guest> call, Response<Guest> response) {
-                    finish();
-                }
+            if (checarVazio(edNome)){
+            } else if (checarVazio(edTelefone)) {
+            } else if (checarVazio(edEmail)) {
+            } else if (checarVazio(edNascimento)) {
+            } else if (validarNascimento(edNascimento)) {
+            } else if (checarVazio(edCpf)) {
+            } else if (validarCpf(edCpf)) {
+            } else if (checarVazio(edSenha)) {
+            } else if ((checarRadioGroup(rgFidelidade, TelaCadastro.this))) {
+            } else {
+                RetrofitConfig retrofitConfig = new RetrofitConfig();
+                Call<Guest> createRequestCall = retrofitConfig.getGuestService().insertGuest(novoGuest);
+                createRequestCall.enqueue(new Callback<Guest>() {
+                    @Override
+                    public void onResponse(Call<Guest> call, Response<Guest> response) {
+                        finish();
+                    }
 
-                @Override
-                public void onFailure(Call<Guest> call, Throwable t) {
-                    Log.e("GuestService   ", "Erro ao cadastrar o guest:" + t.getMessage());
-                    Toast.makeText(TelaCadastro.this, "Sua request falhou!", Toast.LENGTH_LONG).show();
-                }
-            });
-            edCpf.addTextChangedListener(Mask.insert(Mask.CPF_MASK, edCpf));
+                    @Override
+                    public void onFailure(Call<Guest> call, Throwable t) {
+                        Log.e("GuestService   ", "Erro ao cadastrar o guest:" + t.getMessage());
+                        Toast.makeText(TelaCadastro.this, "Sua request falhou!", Toast.LENGTH_LONG).show();
+                    }
+                });
+//            edCpf.addTextChangedListener(Mask.insert(Mask.CPF_MASK, edCpf));
+            }
         });
 
         btDevAlterarCadastro.setOnClickListener(v -> {

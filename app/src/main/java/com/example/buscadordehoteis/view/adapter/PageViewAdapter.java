@@ -5,8 +5,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.example.buscadordehoteis.model.Hotel;
-import com.example.buscadordehoteis.view.fragmentHotel;
-import com.example.buscadordehoteis.view.TelaSlidePageFragmentHotel;
+import com.example.buscadordehoteis.view.fragment.FragmentHotel;
 
 import java.util.List;
 
@@ -25,9 +24,9 @@ public class PageViewAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
 
         for (Hotel hotel: hotelList) {
-            return new fragmentHotel().newInstance(hotel);
+            return new FragmentHotel();
         }
-        return new fragmentHotel().newInstance(hotelList.get(0));
+        return new FragmentHotel().newInstance(hotelList.get(0));
 //
 //        switch (position) {
 //            case 0:
