@@ -22,19 +22,7 @@ public class PageViewAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-
-        for (Hotel hotel: hotelList) {
-            return new FragmentHotel();
-        }
-        return new FragmentHotel().newInstance(hotelList.get(0));
-//
-//        switch (position) {
-//            case 0:
-//            case 1:
-//                return new BlankFragment2();
-//            default:
-//                return new BlankFragment2();
-//        }
+            return new FragmentHotel().newInstance(hotelList.get(position));
     }
 
 

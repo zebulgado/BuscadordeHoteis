@@ -3,6 +3,7 @@ package com.example.buscadordehoteis.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -70,7 +71,6 @@ public class TelaCadastro extends AppCompatActivity {
         });
 
         btCadastrar.setOnClickListener(v -> {
-
 //MONTANDO O GUEST
             Guest novoGuest = new Guest(edCpf.getRawText(),
                     edNome.getText().toString(),

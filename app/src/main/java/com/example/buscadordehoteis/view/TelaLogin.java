@@ -23,6 +23,7 @@ import static com.example.buscadordehoteis.service.validacao.ValidandoCampos.val
 
 public class TelaLogin extends AppCompatActivity {
     Button btEntrar, btDepois, btNovoUsuario;
+    Button btDevTelaReserva;
     EditText edSenha;
     MaskedEditText edCpf;
     public final static String loginStatusFile = "LOGIN_STATUS";
@@ -41,6 +42,7 @@ public class TelaLogin extends AppCompatActivity {
         btNovoUsuario = findViewById(R.id.bt_novo_usuario_login);
         edCpf = findViewById(R.id.ed_cpf_login);
         edSenha = findViewById(R.id.ed_senha_login);
+        btDevTelaReserva = findViewById(R.id.dev_tela_reserva);
 
         btDepois.setOnClickListener(v -> {
             Intent telaPrincipal = new Intent(TelaLogin.this, TelaPrincipal.class);
@@ -78,6 +80,11 @@ public class TelaLogin extends AppCompatActivity {
         btNovoUsuario.setOnClickListener(v -> {
             Intent telaCadastro = new Intent(TelaLogin.this, TelaCadastro.class);
             startActivity(telaCadastro);
+        });
+
+        btDevTelaReserva.setOnClickListener(v -> {
+            Intent telaReserva = new Intent(TelaLogin.this, TelaReserva.class);
+            startActivity(telaReserva);
         });
     }
 

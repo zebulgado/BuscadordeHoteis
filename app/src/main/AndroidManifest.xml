@@ -2,9 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.buscadordehoteis">
 
-    <uses-permission android:name="android.permission.INTERNET">
-
-    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -13,11 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BuscadorDeHotéis">
-        <activity android:name=".view.TelaCadastro"/>
-        <activity android:name=".view.TelaAlterarCadastro"/>
+        <activity android:name=".view.TelaReserva"></activity>
+        <activity android:name=".view.TelaCadastro" />
+        <activity android:name=".view.TelaAlterarCadastro" />
         <activity android:name=".view.TelaPrincipal" />
-        <activity android:name=".view.TelaLogin"/>
-        <activity android:name=".view.ViewPagerActivityHotel"/>
+        <activity android:name=".view.TelaLogin" />
+        <activity android:name=".view.ViewPagerActivityHotel" />
         <activity android:name=".view.TelaSplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
