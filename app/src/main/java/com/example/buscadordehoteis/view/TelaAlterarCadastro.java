@@ -26,16 +26,16 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.example.buscadordehoteis.service.metodosUtil.verificarCpfLogado;
 import static com.example.buscadordehoteis.service.validacao.ValidandoCampos.checarRadioGroup;
 import static com.example.buscadordehoteis.service.validacao.ValidandoCampos.checarVazio;
 
 public class TelaAlterarCadastro extends AppCompatActivity {
-    MaskedEditText edCpf;
     EditText edRetornoNome, edRetornoTelefone, edRetornoEmail, edRetornoNascimento, edRetornoSenha;
     MaskedEditText edRetornoCpf;
     RadioGroup rgRetornoFidelidade;
     RadioButton rbSim, rbNao;
-    Button btConsultar, btAtualizar, btSalvar, btVoltar;
+    Button btAtualizar, btSalvar, btVoltar;
     CheckBox cbExcluir;
     Boolean cadastroLocalizado = false, respostaFidelidade = false, atualizarSenha = false;
     String retornoSenha;
@@ -45,7 +45,6 @@ public class TelaAlterarCadastro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alterar_cadastro);
 
-        edCpf = findViewById(R.id.ed_cpf_consulta_alterar_cadastro);
         edRetornoEmail = findViewById(R.id.ed_email_alterar_cadastro);
         rgRetornoFidelidade = findViewById(R.id.op_fidelidade_alterar_cadastro);
         edRetornoNome = findViewById(R.id.ed_nome_alterar_cadastro);
@@ -53,7 +52,6 @@ public class TelaAlterarCadastro extends AppCompatActivity {
         edRetornoSenha = findViewById(R.id.ed_senha_alterar_cadastro);
         edRetornoTelefone = findViewById(R.id.ed_telefone_alterar_cadastro);
         edRetornoCpf = findViewById(R.id.ed_cpf_alterar_cadastro);
-        btConsultar = findViewById(R.id.bt_consultar_alterar_cadastro);
         btAtualizar = findViewById(R.id.bt_atualizar_alterar_cadastro);
         btSalvar = findViewById(R.id.bt_salvar_alterar_cadastro);
         rbNao = findViewById(R.id.rb_nao_alterar_cadastro);
@@ -62,7 +60,7 @@ public class TelaAlterarCadastro extends AppCompatActivity {
         btVoltar = findViewById(R.id.bt_voltar_alterar_cadastro);
 
         RetrofitConfig retrofitConfig = new RetrofitConfig();
-        Call<Guest> getRequest = retrofitConfig.getGuestService().getGuest(edCpf.getRawText());
+        Call<Guest> getRequest = retrofitConfig.getGuestService().getGuest(verificarCpfLogado(TelaAlterarCadastro.this));
         getRequest.enqueue(new Callback<Guest>() {
             @Override
             public void onResponse(Call<Guest> call, Response<Guest> response) {
@@ -107,14 +105,14 @@ public class TelaAlterarCadastro extends AppCompatActivity {
 // Verifica se deve apagar o cadastro
             if (cbExcluir.isChecked()) {
                 DialogFragment excluirCadastroDialog = new ExcluirCadastroDialogFragment(
-                        edRetornoCpf.getText().toString(), TelaAlterarCadastro.this);
+                        edRetornoCpf.getRawText(), TelaAlterarCadastro.this);
                 excluirCadastroDialog.show(getSupportFragmentManager(), "Exlcuindo conta");
 // Atualiza o cadastro
             } else if (checarVazio(edRetornoTelefone)) {
             } else if (checarVazio(edRetornoEmail)) {
             } else if (checarRadioGroup(rgRetornoFidelidade, TelaAlterarCadastro.this)) {
             } else {
-                Call<Guest> updateRequest = retrofitConfig.getGuestService().getGuest(edRetornoCpf.getRawText());
+                Call<Guest> updateRequest = retrofitConfig.getGuestService().getGuest(verificarCpfLogado(TelaAlterarCadastro.this));
                 updateRequest.enqueue(new Callback<Guest>() {
                     @Override
                     public void onResponse(Call<Guest> call, Response<Guest> response) {

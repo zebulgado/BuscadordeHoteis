@@ -1,8 +1,6 @@
 package com.example.buscadordehoteis.view;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +16,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+import static com.example.buscadordehoteis.service.metodosUtil.deslogar;
 import static com.example.buscadordehoteis.service.metodosUtil.salvarLoginStatus;
 import static com.example.buscadordehoteis.service.validacao.ValidandoCampos.checarVazio;
 import static com.example.buscadordehoteis.service.validacao.ValidandoCampos.validarCpf;
@@ -26,7 +25,6 @@ public class TelaLogin extends AppCompatActivity {
     Button btEntrar, btDepois, btNovoUsuario;
     EditText edSenha;
     MaskedEditText edCpf;
-    SharedPreferences loginStatusPreferences;
     public final static String loginStatusFile = "LOGIN_STATUS";
     public final static String loginStatus = "LOGGED";
     public final static String loginId = "ID";
@@ -36,8 +34,7 @@ public class TelaLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_login);
 
-        loginStatusPreferences = this.getSharedPreferences(loginStatusFile, Context.MODE_PRIVATE);
-        salvarLoginStatus(loginStatusPreferences, false, "convidado");
+        deslogar(TelaLogin.this);
 
         btEntrar = findViewById(R.id.bt_entrar_login);
         btDepois = findViewById(R.id.bt_depois_login);
@@ -62,7 +59,7 @@ public class TelaLogin extends AppCompatActivity {
                     public void onResponse(Call<Boolean> call, Response<Boolean> response) {
                         Boolean validou = response.body();
                         if (validou) {
-                            salvarLoginStatus(loginStatusPreferences, true, edCpf.getRawText());
+                            salvarLoginStatus(true, edCpf.getRawText(), TelaLogin.this);
                             Intent telaPrincipal = new Intent(TelaLogin.this, TelaPrincipal.class);
                             startActivity(telaPrincipal);
                         } else {
@@ -82,5 +79,11 @@ public class TelaLogin extends AppCompatActivity {
             Intent telaCadastro = new Intent(TelaLogin.this, TelaCadastro.class);
             startActivity(telaCadastro);
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        deslogar(TelaLogin.this);
     }
 }

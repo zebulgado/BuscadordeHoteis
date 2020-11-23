@@ -2,6 +2,7 @@ package com.example.buscadordehoteis.repository;
 
 import com.example.buscadordehoteis.service.GuestService;
 import com.example.buscadordehoteis.service.HotelService;
+import com.example.buscadordehoteis.service.ReservationService;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
@@ -24,6 +25,10 @@ public class RetrofitConfig {
 
     public GuestService getGuestService(){
         return retrofit.create(GuestService.class);
+    }
+
+    public ReservationService getReservationService(){
+        return retrofit.create(ReservationService.class);
     }
 
 }

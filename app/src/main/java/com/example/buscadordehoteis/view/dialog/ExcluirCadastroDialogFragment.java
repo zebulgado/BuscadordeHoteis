@@ -1,5 +1,6 @@
 package com.example.buscadordehoteis.view.dialog;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -16,6 +17,8 @@ import com.example.buscadordehoteis.view.TelaAlterarCadastro;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+
+import static com.example.buscadordehoteis.service.metodosUtil.deslogar;
 
 public class ExcluirCadastroDialogFragment extends DialogFragment {
 
@@ -39,6 +42,8 @@ public class ExcluirCadastroDialogFragment extends DialogFragment {
                     deleteRequest.enqueue(new Callback<Void>() {
                         @Override
                         public void onResponse(Call<Void> call, Response<Void> response) {
+                            deslogar(context);
+                            ((Activity)(context)).finish();
                         }
 
                         @Override

@@ -21,5 +21,5 @@ public interface HotelService {
     void insert();
 
     @DELETE("hotel")
-   void delete();
+    void delete();
 }
