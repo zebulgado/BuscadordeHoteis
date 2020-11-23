@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Buscador de Hotéis</string>
+    <string name="Reservar">Reservar</string>
+    <string name="textview">Você ainda não será cobrado</string>
 </resources>
