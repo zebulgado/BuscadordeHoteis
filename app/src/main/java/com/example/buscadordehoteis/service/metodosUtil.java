@@ -5,15 +5,26 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.example.buscadordehoteis.R;
+import com.example.buscadordehoteis.model.Guest;
+import com.example.buscadordehoteis.model.Hotel;
+import com.example.buscadordehoteis.repository.RetrofitConfig;
 import com.example.buscadordehoteis.view.TelaAlterarCadastro;
 import com.example.buscadordehoteis.view.TelaCadastro;
+import com.example.buscadordehoteis.view.TelaReserva;
+import com.example.buscadordehoteis.view.fragment.FragmentHotel;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static com.example.buscadordehoteis.view.TelaLogin.loginId;
 import static com.example.buscadordehoteis.view.TelaLogin.loginStatus;
@@ -55,6 +66,10 @@ public class metodosUtil {
         editorPreferences.apply();
     }
 
+    public static void salvarHotel(Boolean bool, String cnpj, Context context) {
+
+            }
+
     public static void atualizaClickPerfil(ImageView imageView, Context context) {
         SharedPreferences loginStatusPreferences = context.getSharedPreferences(loginStatusFile, Context.MODE_PRIVATE);
         if (loginStatusPreferences.getBoolean(loginStatus, false)) {
@@ -73,6 +88,18 @@ public class metodosUtil {
     public static String verificarCpfLogado(Context context) {
         SharedPreferences loginStatusPreferences = context.getSharedPreferences(loginStatusFile, Context.MODE_PRIVATE);
         return loginStatusPreferences.getString(loginId, "convidado");
+    }
+
+    public static void reservarHotel(String cnpj, Context context) {
+        SharedPreferences reservarHotelPreferences = context.getSharedPreferences(FragmentHotel.RESERVAR_HOTEL_FILE, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editorPreferences = reservarHotelPreferences.edit();
+        editorPreferences.putString(FragmentHotel.H_CNPJ, cnpj);
+        editorPreferences.apply();
+    }
+
+    public static String verificarCnpjHotel(Context context) {
+        SharedPreferences reservarHotelPreferences = context.getSharedPreferences(FragmentHotel.RESERVAR_HOTEL_FILE, Context.MODE_PRIVATE);
+        return reservarHotelPreferences.getString(FragmentHotel.H_CNPJ, "");
     }
 
     public static void deslogar(Context context) {

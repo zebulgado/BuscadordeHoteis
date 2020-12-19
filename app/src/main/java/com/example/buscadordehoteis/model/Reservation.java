@@ -1,17 +1,24 @@
 package com.example.buscadordehoteis.model;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 public class Reservation {
     private Long id;
-    private Timestamp checkin;
-    private Timestamp checkout;
-    private String room;
+    private Date checkin;
+    private Date checkout;
     private Guest guest;
     private Hotel hotel;
 
     public Reservation() {
         super();
+    }
+
+    public Reservation(Date checkin, Date checkout, Guest guest, Hotel hotel, Long id) {
+        this.checkin = checkin;
+        this.checkout = checkout;
+        this.guest = guest;
+        this.hotel = hotel;
+        this.id = id;
     }
 
     public Long getId() {
@@ -22,28 +29,20 @@ public class Reservation {
         this.id = id;
     }
 
-    public Timestamp getCheckin() {
+    public Date getCheckin() {
         return checkin;
     }
 
-    public void setCheckin(Timestamp checkin) {
+    public void setCheckin(Date checkin) {
         this.checkin = checkin;
     }
 
-    public Timestamp getCheckout() {
+    public Date getCheckout() {
         return checkout;
     }
 
-    public void setCheckout(Timestamp checkout) {
+    public void setCheckout(Date checkout) {
         this.checkout = checkout;
-    }
-
-    public String getRoom() {
-        return room;
-    }
-
-    public void setRoom(String room) {
-        this.room = room;
     }
 
     public Hotel getHotel() {

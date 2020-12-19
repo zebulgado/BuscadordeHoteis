@@ -17,8 +17,6 @@ public class TelaSlidePageFragmentHotel extends Fragment {
 
     private int number = 0;
 
-    TextView tvNome, tvPreco;
-
     public TelaSlidePageFragmentHotel(int number) {
         this.number = number;
 

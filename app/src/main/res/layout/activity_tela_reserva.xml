@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TelaReserva">
+    tools:context=".view.TelaReserva">
 
     <TextView
         android:id="@+id/tv_agendar_reserva_tela_reserva"
@@ -25,11 +25,40 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_hotel_info_tela_reserva"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_agendar_reserva_tela_reserva"
+        app:layout_constraintBottom_toTopOf="@id/tv_checkin_tela_reserva"
+        >
+
+        <TextView
+            android:id="@+id/tv_hotel_nome_tela_reserva"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="nome_hotel"
+            />
+
+        <TextView
+            android:id="@+id/tv_hotel_nome_selecionado_tela_reserva"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="nome_hotel"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <TextView
         android:id="@+id/tv_checkin_tela_reserva"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tv_agendar_reserva_tela_reserva"
+        app:layout_constraintTop_toBottomOf="@id/cl_hotel_info_tela_reserva"
         app:layout_constraintBottom_toTopOf="@id/cl_checkin_tela_reserva"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
@@ -49,28 +78,13 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/ed_checkin_hora_tela_reserva"
+            app:layout_constraintEnd_toEndOf="parent"
             android:clickable="true"
             android:inputType="date"
             android:focusable="false"
             android:autofillHints="Data de Checkin"
             android:hint="Data de Checkin"
             />
-
-        <br.com.sapereaude.maskedEditText.MaskedEditText
-            android:id="@+id/ed_checkin_hora_tela_reserva"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ed_checkin_data_tela_reserva"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:textAlignment="center"
-            android:inputType="number"
-            android:hint="########"
-            app:keep_hint="true"
-            app:allowed_chars="1234567890"
-            android:typeface="monospace"
-            app:mask="##:##"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
@@ -96,28 +110,13 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/ed_checkout_hora_tela_reserva"
+            app:layout_constraintEnd_toEndOf="parent"
             android:clickable="true"
             android:inputType="date"
             android:focusable="false"
             android:autofillHints="Data de Checkin"
             android:hint="Data de Checkin"
             />
-
-        <br.com.sapereaude.maskedEditText.MaskedEditText
-            android:id="@+id/ed_checkout_hora_tela_reserva"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toEndOf="@id/ed_checkout_data_tela_reserva"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:textAlignment="center"
-            android:inputType="number"
-            android:hint="########"
-            app:keep_hint="true"
-            app:allowed_chars="1234567890"
-            android:typeface="monospace"
-            app:mask="##:##"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 <androidx.constraintlayout.widget.ConstraintLayout

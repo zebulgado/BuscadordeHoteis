@@ -8,14 +8,15 @@ import retrofit2.Call;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 
 public interface HotelService {
 
     @GET("hotel")
     Call<List<Hotel>> getAllHotel();
 
-    @GET("hotel")
-    Call<Hotel> getHotel(String cnpj);
+    @GET("hotel/{cnpj}")
+    Call<Hotel> getHotel(@Path("cnpj") String cnpj);
 
     @POST("hotel")
     void insert();

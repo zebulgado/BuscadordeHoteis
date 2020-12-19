@@ -4,6 +4,8 @@ import java.util.List;
 
 public class Hotel {
 
+
+
     private String cnpj;
     private String name;
     private String email;
